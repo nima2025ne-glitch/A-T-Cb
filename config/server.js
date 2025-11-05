@@ -15,7 +15,7 @@ if (process.env.NODE_ENV !== 'production') {
   app.use(cors({
     origin: process.env.CLIENT_URL || 'http://localhost:5173',
     credentials: true,
-    methods: ['GET','POST','PATCH','DELETE']
+    methods: ['GET', 'POST', 'PATCH', 'DELETE']
   }));
 }
 
@@ -33,12 +33,17 @@ mongoose.connect(MONGO_URI)
 // ✅ سرو React Build در production
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/my-react-app/build')));
-  
-  app.get('.*', (req, res) => {
+
+  app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/my-react-app/build', 'index.html'));
+  });
+} else {
+  // فقط برای تست در محیط dev
+  app.get('/', (req, res) => {
+    res.send('🌍 Server running (Development mode)');
   });
 }
 
 // ✅ Start Server
 const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(🚀 Server running on port ${PORT}));

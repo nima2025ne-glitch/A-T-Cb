@@ -1,0 +1,31 @@
+{
+  "name": "mern_stack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node config/server.js",
+    "server": "nodemon config/server.js",
+    "client": "npm run dev --prefix client/my-react-app",
+    "dev": "concurrently \"npm:server\" \"npm:client\""
+  },
+  "author": "nima2025ne",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.0",
+    "bootstrap": "^5.3.8",
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.0",
+    "openai": "^6.8.1",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
